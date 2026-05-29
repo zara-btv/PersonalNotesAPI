@@ -1,10 +1,8 @@
-
 from django.contrib import admin
-from django.urls import path,include
-from rest_framework_simplejwt.views import TokenObtainPairView
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("Note.urls")),
-    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('notes/', include("Note.urls")),
+    path('user/', include("User.urls")),
 ]

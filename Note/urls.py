@@ -1,10 +1,9 @@
 
 from django.urls import path,include
 
-from Note.views import RegisterUserView,ChangGenericAPIView,CreateGenericAPIView
+from Note.views import NoteListCreateAPIView,NoteDetailAPIView
 
 urlpatterns = [
-    path("register/", RegisterUserView.as_view(), name="register"),
-    path("notes/<id>", ChangGenericAPIView.as_view(), name="crud"),
-    path("notes/", CreateGenericAPIView.as_view(), name="create"),
+    path("<int:id>/", NoteDetailAPIView.as_view(), name="note-detail"),
+    path("", NoteListCreateAPIView.as_view(), name="note-list-create"),
 ]
